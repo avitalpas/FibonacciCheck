@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Notable&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        
+    <!-- tab title -->
+    <title>Fibonacci</title>
+
+    <!-- tab favicon -->
+    <link rel='icon' href='Fibonnaci.png'> 
+
+    <!-- global style -->
+    <style>
+        body {
+            font-family: 'Muli', sans-serif;
+            background-image: url('./background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        input {
+            font-family: 'Muli', sans-serif;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 25px;
+            line-height: 30px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.568);
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 15px white;
+            transition: 0.5s;
+        }
+
+        ::placeholder {
+            color: rgba(255, 255, 255, 0.712);
+            font-family: 'Muli', sans-serif;
+            transition: 0.5s;
+        }
+
+        button {
+            font-size: 25px;
+            font-family: 'Muli', sans-serif;
+            background-color: rgba(255, 255, 255, 0.938);
+            box-shadow: 0 0 30px pink;
+            border: none;
+            border-radius: 15px;
+            padding: 7px;
+            margin: 15px;
+            margin-top: 50px;
+            width: 150px;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            box-shadow: 0 0 40px rgb(255, 74, 104);
+        }
+
+        .buttons {
+            display: inline;
+        }
+
+        button:active {
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Berkshire Swash', cursive;
+            letter-spacing: .15em;
+            color: white;
+            font-size: 75px;
+            text-shadow: 0 0 30px black;
+            transition: 0.5s;
+            margin-bottom: 20px;
+        }
+
+        h2,
+        h4 {
+            transition: 0.5s;
+            margin: 0;
+        }
+
+        p {
+            font-family: 'Josefin Sans', sans-serif;
+            width: 450px;
+            letter-spacing: .15em;
+            color: white;
+            font-size: 25px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            transition: 0.5s;
+            text-shadow: 0 0 30px black;
+        }
+
+        .centered {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flexedColumn {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        #result {
+            background-color: rgba(255, 255, 255, 0.89);
+            width: auto;
+            padding: 30px;
+            text-align: center;
+            margin-top: 70px;
+            border-radius: 7px;
+            box-shadow: 0 0 20px white;
+        }
+
+        #result h4 {
+            font-size: 25px;
+        }
+
+        .tilt-in-top-2 {
+            -webkit-animation: tilt-in-top-2 .6s cubic-bezier(.25, .46, .45, .94) both;
+            animation: tilt-in-top-2 .6s cubic-bezier(.25, .46, .45, .94) both
+        }
+
+        @-webkit-keyframes tilt-in-top-2 {
+            0% {
+                -webkit-transform: rotateY(-30deg) translateY(-300px) skewY(30deg);
+                transform: rotateY(-30deg) translateY(-300px) skewY(30deg);
+                opacity: 0
+            }
+
+            100% {
+                -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+                transform: rotateY(0deg) translateY(0) skewY(0deg);
+                opacity: 1
+            }
+        }
+
+        @keyframes tilt-in-top-2 {
+            0% {
+                -webkit-transform: rotateY(-30deg) translateY(-300px) skewY(30deg);
+                transform: rotateY(-30deg) translateY(-300px) skewY(30deg);
+                opacity: 0
+            }
+
+            100% {
+                -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
+                transform: rotateY(0deg) translateY(0) skewY(0deg);
+                opacity: 1
+            }
+        }
+
+        .slide-out-bck-center {
+            -webkit-animation: slide-out-bck-center .5s cubic-bezier(.55, .085, .68, .53) both;
+            animation: slide-out-bck-center .5s cubic-bezier(.55, .085, .68, .53) both
+        }
+
+        @-webkit-keyframes slide-out-bck-center {
+            0% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                opacity: 1
+            }
+
+            100% {
+                -webkit-transform: translateZ(-1100px);
+                transform: translateZ(-1100px);
+                opacity: 0
+            }
+        }
+
+        @keyframes slide-out-bck-center {
+            0% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                opacity: 1
+            }
+
+            100% {
+                -webkit-transform: translateZ(-1100px);
+                transform: translateZ(-1100px);
+                opacity: 0
+            }
+        }
+    </style>
+
+    <!-- mobile -->
+    <style>
+        @media only screen and (max-width: 700px) {
+            h1 {
+                letter-spacing: .10em;
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+
+            p {
+                letter-spacing: .10em;
+                font-size: 20px;
+                width: auto;
+            }
+
+            button {
+                font-size: 20px;
+                padding: 10px;
+                margin: 10px;
+                margin-top: 20px;
+                width: auto;
+            }
+
+            input {
+                margin-bottom: 30px;
+                font-size: 20px;
+                line-height: 25px;
+                padding: 10px;
+            }
+
+            #result {
+                width: auto;
+                padding: 15px;
+                margin-top: 20px;
+            }
+
+            #result h4 {
+                font-size: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- main content div -->
+    <div class='centered flexedColumn'>
+
+        <!-- header -->
+        <h1>Fibonacci check</h1>
+
+        <!-- Description -->
+        <p class='centered'>
+            Enter two first numbers and a last number.
+            <br>
+            The result will return last number's location in fibonacci series
+        </p>
+
+        <!-- inputs -->
+        <form class='centered flexedColumn' style='width: 300px;'>
+            <input id='num1' type='number' placeholder='First number'>
+            <input id='num2' type='number' placeholder='Second number'>
+            <input id='lastNum' type='number' placeholder='Last number'>
+        </form>
+
+        <!-- submit button -->
+        <div class='buttons centered'>
+            <button onclick='checkFibonacci()'>Check</button>
+            <button onclick='reset()'>Reset</button>
+        </div>
+
+        <!-- result div -->
+        <div id='result' class='centered' hidden>
+            <h2>Result:</h2>
+            <h4 id='resultCount'></h4>
+        </div>
+
+    </div>
+
+    <!-- scripts -->
+    <script src='./Fibonacci.js'></script>
+</body>
+
+</html>
